@@ -144,6 +144,25 @@
 
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">You Matched: <strong><span id="match-name">This Person!</span></strong></h4>
+                </div>
+                <div class="modal-body"><img class="img-responsive" id="match-img">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
@@ -179,13 +198,18 @@
             function (data) {
                 if (data) {
                     console.log("Successfully submitted");
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr('src', data.photo);
+                    $('#myModal').modal('show');
                 }
                 else {
-                    console.log("Error - Please try again");
+                    $("#match-name").text("Error - Please try again");
+                    $("#match-img").attr('src', 'https://cdn.pixabay.com/photo/2012/05/07/12/03/frog-48234_1280.png');
+                    $('#myModal').modal('show');
                 }
-
                 $("#name").val("");
                 $("#photo").val("");
+                $(".chosen-select").val('1');
             });
     });
 
