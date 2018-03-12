@@ -16,6 +16,35 @@ module.exports = function (app) {
         });
         newFriend.scores = newArray
         friendsData.push(newFriend);
-        res.json(true);
+        var match = friendCompare(newFriend.scores);
+        res.json(match);
     });
+
+    function addArr(x) {
+        var total = 0;
+        var array = x;
+        array.forEach(e => {
+            total += parseInt(e);
+        });
+        return total;
+    };
+
+    function friendCompare (data){
+        var userTotal = addArr(data);
+        var compareArray = [];
+        friendsData.forEach(e => {
+            var val = addArr(e.scores);
+            val = Math.abs(val - userTotal);
+            compareArray.push(val);
+            });
+        var value = compareArray[0];
+        var index = 0;
+        for (var i = 1; i < (compareArray.length - 1); i++) {
+            if (compareArray[i] < value) {
+                value = compareArray[i];
+                index = i;
+            };
+        };
+        return friendsData[index];
+    }
 };
