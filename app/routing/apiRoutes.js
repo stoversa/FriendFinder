@@ -7,7 +7,15 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        friendsData.push(req.body);
+        var newFriend = req.body;
+        var array = newFriend.scores;
+        var newArray = [];
+        array.forEach(e => {
+            var num = parseInt(e);
+            newArray.push(num);
+        });
+        newFriend.scores = newArray
+        friendsData.push(newFriend);
         res.json(true);
     });
 };
