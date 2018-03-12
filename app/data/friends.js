@@ -1,18 +1,50 @@
 var friendsArray = [
     {
-        "name": "Ahmed",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name": "Grumpy Gus",
+        "photo": "https://cdn.pixabay.com/photo/2018/02/21/18/24/cat-3171124_1280.jpg",
+        "scores": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    },
+    {
+        "name": "Excited Susan",
+        "photo": "https://cdn.pixabay.com/photo/2017/11/23/03/17/christmas-2971961_1280.jpg",
         "scores": [
             5,
-            1,
-            4,
-            4,
             5,
-            1,
-            2,
             5,
-            4,
-            1
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+        ]
+    },
+    {
+        "name": "Even Keel",
+        "photo": "https://cdn.pixabay.com/photo/2018/03/06/02/58/cutter-3202437_1280.jpg",
+        "scores": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
         ]
     }
 ];
