@@ -25,16 +25,23 @@
                     <h3>About You</h3>
 
                     <label for="reserve-name">Name (Required)</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" placeholder="Your name here!" id="name">
 
-                    <label for="reserve-phone">Link to Photo Image (Required)</label>
-                    <input type="text" class="form-control" id="photo">
+                    <br>
+                    <label for="photo">Link to Photo Image (Required)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Your photo URL..." id="photo">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="need-img">Need a photo?</button>
+                        </span>
+                    </div>
 
                     <hr>
 
                     <h3>Question 1</h3>
                     <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
                     <select class="chosen-select" id="q1">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -44,6 +51,7 @@
                     <h3>Question 2</h3>
                     <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
                     <select class="chosen-select" id="q2">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -53,6 +61,7 @@
                     <h3>Question 3</h3>
                     <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
                     <select class="chosen-select" id="q3">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -62,6 +71,7 @@
                     <h3>Question 4</h3>
                     <h4>You rarely do something just out of sheer curiosity.</h4>
                     <select class="chosen-select" id="q4">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -71,6 +81,7 @@
                     <h3>Question 5</h3>
                     <h4>People can rarely upset you.</h4>
                     <select class="chosen-select" id="q5">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -80,6 +91,7 @@
                     <h3>Question 6</h3>
                     <h4>It is often difficult for you to relate to other people’s feelings.</h4>
                     <select class="chosen-select" id="q6">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -89,6 +101,7 @@
                     <h3>Question 7</h3>
                     <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
                     <select class="chosen-select" id="q7">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -98,6 +111,7 @@
                     <h3>Question 8</h3>
                     <h4>You rarely get carried away by fantasies and ideas.</h4>
                     <select class="chosen-select" id="q8">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -107,6 +121,7 @@
                     <h3>Question 9</h3>
                     <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
                     <select class="chosen-select" id="q9">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -116,6 +131,7 @@
                     <h3>Question 10</h3>
                     <h4>You feel more energetic after spending time with a group of people.</h4>
                     <select class="chosen-select" id="q10">
+                        <option value="0">Please Choose...</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -145,16 +161,54 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="SystemNotification">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">You Matched: <strong><span id="match-name">This Person!</span></strong></h4>
+                    <h4 class="modal-title" id="SystemNotification"><strong><span id="match-name"></span></strong></h4>
                 </div>
                 <div class="modal-body"><img class="img-responsive" id="match-img">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="ImageModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="ImageModal">
+                        Please select your image
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail img-option" id="dog">
+                                <img class="img-thumbnail" id="dog-img" src="https://cdn.pixabay.com/photo/2018/03/11/08/47/dog-3216207_1280.png" alt="Dog">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail img-option" id="bird">
+                                <img class="img-thumbnail" id="bird-img" src="https://cdn.pixabay.com/photo/2018/03/12/06/05/owl-3218837_1280.png" alt="Bird">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail img-option" id="lion">
+                                <img class="img-thumbnail" id="lion-img" src="https://cdn.pixabay.com/photo/2014/10/02/15/41/loin-470302_1280.png" alt="Lion">
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -169,48 +223,62 @@
 
 
 <script type="text/javascript">
+    $('#need-img').on("click", function (event) {
+            event.preventDefault();
+            $('#imgModal').modal('toggle');
+        }
+    )
+    
+    $('.img-option').on("click", function (event) {
+            event.preventDefault();
+            $('#photo').val($(this).children($('<img>')).attr('src'));
+            $('#imgModal').modal('toggle');
+        }
+    )
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        if ($("#name").val() == "" || $("#photo").val() == "" || $(".chosen-select") == "Please Choose..."){
+            $("#match-name").text('Form incomplete: Please Fill Out All Options');
+            $("#match-img").attr('src', 'https://cdn.pixabay.com/photo/2014/08/28/23/12/doe-430238_1280.jpg');
+            $('#myModal').modal('toggle');
+        }
+        else {
+            var newProfile = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
 
-        // Here we grab the form elements
-        var newProfile = {
-            name: $("#name").val().trim(),
-            photo: $("#photo").val().trim(),
-            scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-            ]
-        };
-
-        console.log(newProfile);
-
-
-        $.post("/api/friends", newProfile,
-            function (data) {
-                if (data) {
-                    console.log("Successfully submitted");
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr('src', data.photo);
-                    $('#myModal').modal('show');
-                }
-                else {
-                    $("#match-name").text("Error - Please try again");
-                    $("#match-img").attr('src', 'https://cdn.pixabay.com/photo/2012/05/07/12/03/frog-48234_1280.png');
-                    $('#myModal').modal('show');
-                }
-                $("#name").val("");
-                $("#photo").val("");
-                $(".chosen-select").val('1');
-            });
+            $.post("/api/friends", newProfile,
+                function (data) {
+                    if (data) {
+                        $("#match-name").text('You Matched: ' + data.name);
+                        $("#match-img").attr('src', data.photo);
+                        $('#myModal').modal('toggle');
+                    }
+                    else {
+                        $("#match-name").text("Error - Please try again");
+                        $("#match-img").attr('src', 'https://cdn.pixabay.com/photo/2012/05/07/12/03/frog-48234_1280.png');
+                        $('#myModal').modal('toggle');
+                    }
+                    $("#name").val("");
+                    $("#photo").val("");
+                    $(".chosen-select").val('0');
+                });
+        }
+       
     });
 
 </script>
