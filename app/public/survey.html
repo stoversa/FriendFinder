@@ -195,17 +195,17 @@
                     <div class="row">
                         <div class="col-xs-6 col-md-3">
                             <a class="thumbnail img-option" id="dog">
-                                <img class="img-thumbnail" id="dog-img" src="https://github.com/stoversa/FriendFinder/blob/master/app/images/dog.png?raw=true" alt="Dog">
+                                <img class="img-thumbnail" id="dog-img" src="../images/dog.png" alt="Dog">
                             </a>
                         </div>
                         <div class="col-xs-6 col-md-3">
                             <a class="thumbnail img-option" id="bird">
-                                <img class="img-thumbnail" id="bird-img" src="https://github.com/stoversa/FriendFinder/blob/master/app/images/owl.png?raw=true" alt="Bird">
+                                <img class="img-thumbnail" id="bird-img" src="../images/owl.png" alt="Bird">
                             </a>
                         </div>
                         <div class="col-xs-6 col-md-3">
                             <a class="thumbnail img-option" id="lion">
-                                <img class="img-thumbnail" id="lion-img" src="https://github.com/stoversa/FriendFinder/blob/master/app/images/lion.jpg?raw=true" alt="Lion">
+                                <img class="img-thumbnail" id="lion-img" src="../images/lion.jpg" alt="Lion">
                             </a>
                         </div>
                     </div>
@@ -216,69 +216,7 @@
             </div>
         </div>
     </div>
-
+    <script src="../js/public.js"></script>
 </body>
 
 </html>
-
-
-<script type="text/javascript">
-    $('#need-img').on("click", function (event) {
-            event.preventDefault();
-            $('#imgModal').modal('toggle');
-        }
-    )
-    
-    $('.img-option').on("click", function (event) {
-            event.preventDefault();
-            $('#photo').val($(this).children($('<img>')).attr('src'));
-            $('#imgModal').modal('toggle');
-        }
-    )
-
-    $("#submit").on("click", function (event) {
-        event.preventDefault();
-        if ($("#name").val() == "" || $("#photo").val() == "" || $(".chosen-select") == "Please Choose..."){
-            $("#match-name").text('Form incomplete: Please Fill Out All Options');
-            $("#match-img").attr('src', 'https://cdn.pixabay.com/photo/2014/08/28/23/12/doe-430238_1280.jpg');
-            $('#myModal').modal('toggle');
-        }
-        else {
-            var newProfile = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                scores: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    $("#q3").val(),
-                    $("#q4").val(),
-                    $("#q5").val(),
-                    $("#q6").val(),
-                    $("#q7").val(),
-                    $("#q8").val(),
-                    $("#q9").val(),
-                    $("#q10").val()
-                ]
-            };
-
-            $.post("/api/friends", newProfile,
-                function (data) {
-                    if (data) {
-                        $("#match-name").text('You Matched: ' + data.name);
-                        $("#match-img").attr('src', data.photo);
-                        $('#myModal').modal('toggle');
-                    }
-                    else {
-                        $("#match-name").text("Error - Please try again");
-                        $("#match-img").attr('src', 'https://cdn.pixabay.com/photo/2012/05/07/12/03/frog-48234_1280.png');
-                        $('#myModal').modal('toggle');
-                    }
-                    $("#name").val("");
-                    $("#photo").val("");
-                    $(".chosen-select").val('0');
-                });
-        }
-       
-    });
-
-</script>
