@@ -1,7 +1,7 @@
 var friendsArray = [
     {
         "name": "Grumpy Gus",
-        "photo": "https://cdn.pixabay.com/photo/2018/02/21/18/24/cat-3171124_1280.jpg",
+        "photo": "../images/grumpy.jpg",
         "scores": [
             1,
             1,
@@ -17,7 +17,7 @@ var friendsArray = [
     },
     {
         "name": "Excited Susan",
-        "photo": "https://cdn.pixabay.com/photo/2017/11/23/03/17/christmas-2971961_1280.jpg",
+        "photo": "../images/excited.jpg",
         "scores": [
             5,
             5,
@@ -33,7 +33,7 @@ var friendsArray = [
     },
     {
         "name": "Even Keel",
-        "photo": "https://cdn.pixabay.com/photo/2018/03/06/02/58/cutter-3202437_1280.jpg",
+        "photo": "../images/ship.jpg",
         "scores": [
             3,
             3,
