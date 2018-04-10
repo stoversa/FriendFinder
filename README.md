@@ -17,11 +17,12 @@ To use this application:
 ```
 git clone git@github.com:stoversa/FriendFinder.git
 ```
-2. Open the repo and execute in the bash terminal. Doing so should install the cTable, inquirer, and MySQL npm packages:
+2. Open the repo and execute the following in the bash terminal. Doing so should install the required NPM packages:
 ```
 npm i
 ```
 
 ### Features Overview
+![Friend Finder Preview](app/public/images/friendfinder-demo.gif "Logo Title Text 1")
 
-Coming soon!
+This application allows users to fill out a brief 10-question survey. Once the user completes the survey, their results are matched with their most compatible friend (either from the example data, or from previously-used data from the user's same session).
