@@ -1,7 +1,7 @@
 # FriendFinder
 
 ## Overview
-This is a compatibility-finding application, similar to a dating app, developed for UNC's Coding Bootcamp. It will eventually be deployed to Heroku (coming soon!).
+This is a compatibility-finding application, similar to a dating app, developed for UNC's Coding Bootcamp. See the application in action on Heroku at: [https://friendfinder-stoversa.herokuapp.com/](https://friendfinder-stoversa.herokuapp.com/)
 
 ### Technologies Used
 - [Node.js and npm](https://nodejs.org/en/download/ "Download Node.js and npm"). First, this application relies on both Node.js and npm to download Node packages and to run the application. Users can download the latest versions of both using the link to the left.
